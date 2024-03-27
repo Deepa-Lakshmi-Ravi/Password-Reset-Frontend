@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useParams } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -12,7 +12,7 @@ const ResetPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  //const{randomString,expirationTimestamp} = useParams();
+  const{randomString,expirationTimestamp} = useParams();
   let navigate = useNavigate();
 
   const resetPassword = async (e) => {
@@ -20,7 +20,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       let result = await axios.post(
-        "https://password-rest-w3tr.onrender.com/user/reset-password",
+        `https://password-rest-w3tr.onrender.com/user/reset-password/${randomString}/${expirationTimestamp}`,
         {
           newPassword: password,
         }
