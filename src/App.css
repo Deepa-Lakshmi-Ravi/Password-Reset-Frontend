@@ -1,0 +1,87 @@
+body {
+  background-image: url("https://img.freepik.com/free-vector/matrix-style-binary-code-digital-falling-numbers-blue-background_1017-37387.jpg?size=626&ext=jpg&ga=GA1.1.735520172.1711411200&semt=sph");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.signup-container,
+.login-container,
+.forget-container,
+.reset-container,
+.main-container {
+  padding: 25px;
+  margin-left: 450px;
+  width: 50%;
+}
+.signup {
+  text-align: center;
+  color: #97ccf7;
+  font-weight: bold;
+}
+.signup-btn,
+.login-btn,
+.send-btn,
+.set-btn {
+  background-color: #97ccf7;
+  width: 100%;
+  color: black;
+  font-size: 18px;
+}
+.home-head {
+  color: #97ccf7;
+  margin-left: 450px;
+  font-weight: bold;
+}
+.home-btn {
+  background-color: #97ccf7;
+  margin-left: 600px;
+}
+@media only screen and (max-width: 1200px) {
+  .signup-container,
+  .login-container,
+  .forget-container,
+  .reset-container,
+  .main-container {
+    width: 80%;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .signup-container,
+  .login-container,
+  .forget-container,
+  .reset-container,
+  .main-container {
+    width: 70%;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .home-head {
+    margin-left: 200px;
+  }
+  .home-btn {
+    margin-left: 300px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .signup-container,
+  .login-container,
+  .forget-container,
+  .reset-container,
+  .main-container {
+    width: 90%;
+    margin-left: 30px;
+  }
+
+  .home-head {
+    margin-left: 30px;
+  }
+  .home-btn {
+    margin-left: 150px;
+  }
+}
