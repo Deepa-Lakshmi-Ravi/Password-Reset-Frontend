@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<SigninForm />} />
         <Route path="/forget-password" element={<ForgetPasswordForm />} />
-        <Route path="/reset-password" element={<ResetPasswordForm />} />
+        <Route path="/reset-password/:randomString/:expirationTimestamp" element={<ResetPasswordForm />} />
         <Route path="/dashboard" element={<MainPage />} />
       </Routes>
     </BrowserRouter>
