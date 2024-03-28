@@ -13,7 +13,7 @@ const ForgetPassword = () => {
     setLoading(true);
     try {
       let result = await axios.post(
-        "https://password-rest-w3tr.onrender.com/user/forget-password",
+        "https://password-rest-sokz.onrender.com/user/forget-password",
         {
           email,
         }

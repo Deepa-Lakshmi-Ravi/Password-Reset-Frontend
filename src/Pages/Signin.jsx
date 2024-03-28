@@ -20,7 +20,7 @@ const Signin = () => {
     setLoading(true);
     try {
       let result = await axios.post(
-        "https://password-rest-w3tr.onrender.com/user/login",
+        "https://password-rest-sokz.onrender.com/user/login",
         {
           email,
           password,

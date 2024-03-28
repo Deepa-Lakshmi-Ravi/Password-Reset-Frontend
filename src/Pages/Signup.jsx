@@ -22,7 +22,7 @@ const SignUpForm = () => {
     setLoading(true);
     try {
       let res = await axios.post(
-        " https://password-rest-w3tr.onrender.com/user/signup",
+        " https://password-rest-sokz.onrender.com/user/signup",
         {
           firstName,
           lastName,
