@@ -1,6 +1,6 @@
-import { useState,useParams } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const ResetPassword = () => {
@@ -12,7 +12,7 @@ const ResetPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const{randomString,expirationTimestamp} = useParams();
+  const { randomString, expirationTimestamp } = useParams();
   let navigate = useNavigate();
 
   const resetPassword = async (e) => {
@@ -26,13 +26,18 @@ const ResetPassword = () => {
         }
       );
       if (result.status === 200) {
-        toast.success("Password updated successfully");
+        toast.success("Password updated successfully", {
+          position: "top-center",
+        });
         navigate("/login");
       }
     } catch (err) {
       if (err.response && err.response.status === 400) {
         toast.error(
-          "Invalid token or token has expired.Please request a new reset link."
+          "Invalid token or token has expired.Please request a new reset link.",
+          {
+            position: "top-center",
+          }
         );
       } else {
         console.log(err);
@@ -66,6 +71,7 @@ const ResetPassword = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="********"
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
@@ -76,7 +82,7 @@ const ResetPassword = () => {
               type="checkbox"
               checked={showPassword}
               onChange={PasswordVisibility}
-              value=""
+              value="password"
               id="flexCheckDefault"
             />
             <label

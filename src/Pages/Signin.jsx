@@ -9,7 +9,6 @@ const Signin = () => {
   const PasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,15 +26,19 @@ const Signin = () => {
         }
       );
       if (result.status === 200) {
-        toast.success("Login successfull");
+        toast.success("Login successfull", {
+          position: "top-center",
+        });
 
-        sessionStorage.setItem("firstName", result.data.user.firstName);
-        sessionStorage.setItem("email", result.data.user.email);
+        sessionStorage.setItem("firstName", result.data.userData.firstName);
+        sessionStorage.setItem("email", result.data.userData.email);
         navigate("/dashboard");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Incorrect email or Password");
+      toast.error("Incorrect email or Password", {
+        position: "top-center",
+      });
     } finally {
       setLoading(false);
     }
@@ -66,6 +69,7 @@ const Signin = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -79,6 +83,7 @@ const Signin = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="********"
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

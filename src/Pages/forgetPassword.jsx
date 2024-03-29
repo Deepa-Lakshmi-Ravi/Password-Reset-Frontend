@@ -20,12 +20,17 @@ const ForgetPassword = () => {
       );
       if (result.status === 200) {
         toast.success(
-          "Reset link sent successfully your email.please check the email"
+          "Reset link sent successfully your email.please check the email",
+          {
+            position: "top-center",
+          }
         );
       }
     } catch (error) {
       console.log(error);
-      toast.error("Invalid email");
+      toast.error("Invalid email", {
+        position: "top-center",
+      });
     } finally {
       setLoading(false);
     }
@@ -55,6 +60,7 @@ const ForgetPassword = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>

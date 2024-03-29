@@ -6,19 +6,19 @@ import axios from "axios";
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const PasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
   const [firstName, setfirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const PasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   let navigate = useNavigate();
 
-  const createUser = async (e) => {
-    e.preventDefault();
+  const createUser = async (event) => {
+    event.preventDefault();
     setLoading(true);
     try {
       let res = await axios.post(
@@ -30,13 +30,17 @@ const SignUpForm = () => {
           password,
         }
       );
-      if (res.status === 200) {
-        toast.success("User created successfully");
+      if (res.status === 201) {
+        toast.success("User created successfully", {
+          position: "top-center",
+        });
         navigate("/login");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Fill all the detials");
+      toast.error("Fill all the details", {
+        position: "top-center",
+      });
     } finally {
       setLoading(false);
     }
@@ -46,7 +50,9 @@ const SignUpForm = () => {
     <>
       {loading && (
         <div className="loading-screen">
-          <div className="loading-spinner"></div>
+          <div className="loading-spinner">
+            <i className="fa-solid fa-spinner fa-4x"></i>
+          </div>
         </div>
       )}
       <div className="signup-container">
@@ -66,6 +72,7 @@ const SignUpForm = () => {
               placeholder="First name"
               aria-label="First name"
               onChange={(e) => setfirstName(e.target.value)}
+              required
             />
           </div>
           <br />
@@ -80,6 +87,7 @@ const SignUpForm = () => {
               placeholder="Last name"
               aria-label="Last name"
               onChange={(e) => setLastName(e.target.value)}
+              required
             />
           </div>
           <br />
@@ -94,6 +102,7 @@ const SignUpForm = () => {
               aria-describedby="emailHelp"
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <br />
@@ -107,6 +116,7 @@ const SignUpForm = () => {
               id="exampleInputPassword1"
               placeholder="********"
               pattern=".{8,}"
+              required
               title="Password must be atleast 8 characters"
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -134,9 +144,11 @@ const SignUpForm = () => {
             type="submit"
             onClick={(e) => createUser(e)}
             className="signup-btn"
+            disabled={loading}
           >
             Sign Up
           </button>
+
           <br />
           <br />
           <p style={{ color: "#97ccf7" }}>

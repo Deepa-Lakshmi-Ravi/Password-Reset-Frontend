@@ -15,16 +15,13 @@ const MainPage = () => {
   return (
     <>
       <div className="main-container">
-        <h1 style={{ color: "#97ccf7", fontSize: "80px" }}>WELCOME</h1>
+        <h1 className="welcome">WELCOME</h1>
         <br />
         <br />
-        <p style={{ color: "#97ccf7", fontSize: "50px" }} className="username">
-          {firstName}
-        </p>
+        <p className="username">{firstName}</p>
         <br />
         <br />
         <button
-          style={{ backgroundColor: "#97ccf7", marginLeft: "150px" }}
           type="submit"
           onClick={() => navigate("/login")}
           className="logout-btn"
