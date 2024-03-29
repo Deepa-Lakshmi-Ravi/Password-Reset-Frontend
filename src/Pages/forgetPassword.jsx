@@ -18,13 +18,14 @@ const ForgetPassword = () => {
           email,
         }
       );
-      if (result.status === 200) {
+      if (result.status === 201) {
         toast.success(
           "Reset link sent successfully your email.please check the email",
           {
             position: "top-center",
           }
         );
+        setEmail(" ");
       }
     } catch (error) {
       console.log(error);
@@ -70,6 +71,7 @@ const ForgetPassword = () => {
           </button>
           <br />
           <br />
+          
           <p style={{ color: "#97ccf7" }}>
             Remember your password ? &nbsp; &nbsp;
             <span
