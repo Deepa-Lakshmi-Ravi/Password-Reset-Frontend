@@ -30,7 +30,7 @@ const SignUpForm = () => {
           password,
         }
       );
-      if (res.status == 201) {
+      if (res.status === 201) {
         toast.success("User created successfully", {
           position: "top-center",
         });

@@ -18,7 +18,7 @@ const ForgetPassword = () => {
           email,
         }
       );
-      if (result.status == 201) {
+      if (result.status === 201) {
         toast.success(
           "Reset link sent successfully your email.please check the email",
           {
