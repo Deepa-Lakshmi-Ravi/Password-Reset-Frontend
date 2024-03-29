@@ -20,7 +20,7 @@ const ResetPassword = () => {
     setLoading(true);
     try {
       let result = await axios.post(
-        `https://password-rest-sokz.onrender.com/reset-password/${randomString}/${expirationTimestamp}`,
+        `https://password-rest-sokz.onrender.com/user/reset-password/${randomString}/${expirationTimestamp}`,
         {
           newPassword:password
         }
