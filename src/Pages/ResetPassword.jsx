@@ -22,10 +22,9 @@ const ResetPassword = () => {
       let result = await axios.post(
         `https://password-rest-sokz.onrender.com/${randomString}/${expirationTimestamp}`,
         {
-          newPassword: password,
+          newPassword:password,
         }
       );
-      console.log(result);
       if (result.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
