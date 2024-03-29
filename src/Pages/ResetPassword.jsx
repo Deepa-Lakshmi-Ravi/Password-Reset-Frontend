@@ -22,7 +22,7 @@ const ResetPassword = () => {
       let result = await axios.post(
         `https://password-rest-sokz.onrender.com/${randomString}/${expirationTimestamp}`,
         {
-          newPassword:password,
+          newPassword:password
         }
       );
       if (result.status == 200) {
