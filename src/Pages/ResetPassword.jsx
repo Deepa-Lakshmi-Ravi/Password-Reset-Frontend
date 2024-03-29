@@ -25,6 +25,7 @@ const ResetPassword = () => {
           newPassword: password,
         }
       );
+      console.log(result);
       if (result.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
